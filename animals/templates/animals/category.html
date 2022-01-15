@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link link type="text/css" href="{% static 'animals/css/styles.css' %}" rel="stylesheet"/>
+</head>
+<body>
+
+{% block mainmenu %}
+		<div class="header">
+			<ul id="mainmenu" class="mainmenu">
+{% for m in menu %}
+	{% if not forloop.last %}
+			<li><a href={% url m.url_name %}>{{m.title}}</a></li>
+	{% else %}
+			<li class="last"><a href={% url m.url_name %}>{{m.title}}</a></li>
+	{% endif %}
+{% endfor %}
+			</ul>
+			<div class="clear"></div>
+		</div>
+{% endblock mainmenu %}
+
+<table class="table-content" border=0 cellpadding="0" cellspacing="0">
+<tr>
+	<td valign="top" class="left-chapters">
+	<ul id="leftchapters">
+		<li><a href="cat">Кошки</a></li>
+		<li><a href="dog">Собаки</a></li>
+        <li><a href="bird">Птицы</a></li>
+        <li><a href="other">Иное</a></li><br>
+        <li><a href="all_animals">Все животные</a></li>
+	</ul>
+</td>
+<td valign="top" class="content">
+	{% block breadcrumbs %}
+	{% endblock %}
+
+    {% for a in announcement %}
+        <p><b>{{ a.animal.breed.animal_type.clases }}</b></p>
+         <p><b>{{ a.animal.breed.name }}</b></p>
+         <p><b>{{ a.animal.animal_name }}</b></p>
+        <p><b>{{ a.animal.animal_details }}</b></p>
+        {% if a.animal.img %}
+            <img target="_blank" src="{{ a.animal.img.url }}" />
+        {% endif %}
+        <p><b>{{ a.location.city }}</b></p>
+        <p><b>{{ a.location.region }}</b></p>
+        <p><b>{{ a.location.district }}</b></p>
+        <p><b>{{ a.data}}</b></p>
+        <p><b>{{ a.phone_contacts}}</b></p><br>
+        {% endfor %}
+
+{% for com in comment %}
+    <p><b>{{com.comment_text}}</b></p>
+
+
+ {% endfor %}
+
+
+	<div class="content-text">
+{% block content %}
+	</div>
+{% endblock content %}
+
+</td></tr></table>
+
+</body>
+</html>
