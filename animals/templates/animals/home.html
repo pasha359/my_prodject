@@ -1,0 +1,20 @@
+
+{% extends 'animals/base.html' %}
+{% block content %}
+
+
+    <h1>{{ title }}</h1>
+<ul class="list-articles">
+    {% for i in posts %}
+        <li>{{ i.title }}</li>
+        <li>{{ i.animal_category }}</li>
+        <li>{{ i.place_of_find }}</li>
+        <li>{{ i.info| truncatewords:50 }}</li>
+        <li>{{ i.data }}</li>
+        <img src="{{ i.img.url }}" alt="{{ i.title }}" width="25%">
+        <hr>
+        <p class="read_more"><a href={{ i.get_absolut_way }}>Подробнее</a></p>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
