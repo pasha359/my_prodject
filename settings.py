@@ -1,0 +1,3 @@
+bot_token='5249691311:AAGkyMRKUl-cNOIB4lBeeU-wfAOsHRkNpLI'
+weayher_key='089de6f7d86a11cecad4fc6d141d98a8&lang=ru'
+pexel_key='563492ad6f9170000100000144badf34ab6e488798ce993ff6145bb0'
