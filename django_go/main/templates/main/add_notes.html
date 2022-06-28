@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<form action="{% url 'add_notes' %}" enctype="multipart/form-data" method="post" action="/foo/">
+
+    {% csrf_token %}
+    {{ pos_form.as_p }}
+ <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
+
+{% endblock %}
+
