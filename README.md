@@ -1,4 +1,4 @@
-## на данном репозитории вы найдете следующие проекты (use develop branch)
+## на данном репозитории вы найдете следующие проекты 
 ### 1) my_bot (deploy on heroku) 
 ### 2) django prodject, web resource работает наподобии "доски объявлений"
 ### 3) cat_wars_game игра наподобии galaga 
