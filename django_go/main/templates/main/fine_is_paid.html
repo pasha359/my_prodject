@@ -7,20 +7,15 @@
   <div class="row g-0">
     <div class="col-md-4">
       {% if a.property.image %}
-            <img src="{{ a.property.image.url }}" width="300" height="250" />
+            <img src="{{ a.property.image.url }}" width="300" height="200" />
         {% endif %}
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{ a.property.property_name}}</h5>
+       <h5 class="card-title">{{ a.property.property_name}}</h5>
         <h5 class="card-title">{{ a.property.person_id.person_name}}</h5>
-        <p class="card-text">Пол - {{ a.property.person_id.sex }}, полных лет {{ a.property.person_id.age }}</p>
-        <p class="card-text">Номер документа клиента - {{ a.property.person_id.passport.number }}</p>
-        <p class="card-text">Авто зобрано клиентом - {{ a.property.taken_by_owner }}</p>
-        <p class="card-text">Штраф оплачен - {{ a.property.fine_is_paid }}</p>
-        <p class="card-text">Контакты {{ a.contact }}</p>
         <p class="card-text"><small class="text-muted">{{ a.date}}</small></p>
-          <button type="button" class="btn btn-primary">Детали</button>
+          <a class="btn btn-outline-success me-2" href={{ a.get_absolute_url }}>Подробнее</a>
       </div>
     </div>
   </div>

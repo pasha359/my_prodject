@@ -1,7 +1,5 @@
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser
 from django.db import models
-from django.dispatch import receiver
-
 
 class CustomUser(AbstractUser):
     GENDER = (

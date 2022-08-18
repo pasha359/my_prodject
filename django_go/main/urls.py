@@ -1,6 +1,7 @@
 from . import views
 from django.urls import path
 
+from .views import Search
 
 urlpatterns = [
     path('', views.home, name= 'home' ),
@@ -8,6 +9,8 @@ urlpatterns = [
     path('all_notes/', views.all_notes, name = 'all_notes'),
     path('fine_is_paid/', views.fine_is_paid, name = 'fine_is_paid'),
     path('taken_by_owner/', views.taken_by_owner, name = 'taken_by_owner'),
+    path('note/<int:note_id>/', views.show_note, name = 'note'),
+    path('search/',Search.as_view(), name='search')
 
 
 

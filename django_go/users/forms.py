@@ -1,5 +1,4 @@
 from django import forms
-
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from .models import CustomUser
 from django.core.exceptions import ValidationError
@@ -14,9 +13,6 @@ class UserLoginForm(AuthenticationForm):
     username = forms.CharField(label='Имя пользователя', widget= forms.TextInput(attrs={'class':'form-control'}))
     password = forms.CharField(label='Пароль', widget= forms.TextInput(attrs={'class':'form-control'}))
 
-
-
-
 class CustomUserCreationForm(UserCreationForm):
     username = forms.CharField(label='Имя пользователя', widget= forms.TextInput(attrs={'class':'form-control'}))
     email = forms.EmailField(label='email', widget=forms.EmailInput(attrs={'class': 'form-control'}))
@@ -29,16 +25,11 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ('username', 'email','gender' ,'age','access_key')
 
-
     def clean_access_key(self):
         access_key = self.cleaned_data['access_key']
         if access_key not in access_key_list:
             raise ValidationError('Неверный ключ регистрации')
         return access_key
-
-
-
-
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from users.models import CustomUser
-from django.contrib.auth import login, logout
+from django.shortcuts import reverse
 
 sex_choices = (
     ('MEN', 'men'),
@@ -47,6 +47,9 @@ class Notes(models.Model):
     property = models.ForeignKey('Propertys', on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
     contact = models.EmailField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('note', kwargs={'note_id':self.pk})
 
     class Meta:
         verbose_name = 'Запись'

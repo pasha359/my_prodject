@@ -3,9 +3,6 @@ from .forms import CustomUserCreationForm, UserLoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
-
-
-
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -19,6 +16,7 @@ def register(request):
         form = CustomUserCreationForm()
 
     return render(request, 'users/registration.html',{'form':form})
+
 
 def log_in(request):
     if request.method == 'POST':

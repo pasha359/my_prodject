@@ -14,7 +14,7 @@ class NotesForm(forms.Form):
     sex = forms.ChoiceField(choices=sex_choices, label='Пол')
     number = forms.CharField(max_length=150, label='Номер документа')
     image = forms.ImageField(label='Фото имущества', required=False)
-    property_name = forms.CharField(max_length=150,label='Описание имущества')
+    property_name = forms.CharField(max_length=150,label='Название имущества')
     fine_is_paid = forms.ChoiceField(choices=boolean_choices, label='Штраф оплачен')
     taken_by_owner = forms.ChoiceField(choices=boolean_choices, label='Авто забарно владельцем')
     contact = forms.EmailField(label='email для оповещения')
@@ -41,7 +41,7 @@ class NotesForm(forms.Form):
         new_notes = Notes.objects.create(
             date=self.cleaned_data['date'],
             contact=self.cleaned_data['contact'],
-            # user = self.cleaned_data['CustomUser'],
+            # user = self.cleaned_data['user'],
             property = new_propertys)
 
 
