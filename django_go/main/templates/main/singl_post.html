@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+
+    <div class="card mb-3" style="max-width: 900px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      {% if notes.property.image %}
+            <img src="{{ notes.property.image.url }}" width="300" height="250" />
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ notes.property.property_name}}</h5>
+        <h5 class="card-title">{{ notes.property.person_id.person_name}}</h5>
+        <p class="card-text">Пол - {{ notes.property.person_id.sex }}, полных лет {{ notes.property.person_id.age }}</p>
+        <p class="card-text">Номер документа клиента - {{ notes.property.person_id.passport.number }}</p>
+        <p class="card-text">Авто зобрано клиентом - {{ notes.property.taken_by_owner }}</p>
+        <p class="card-text">Штраф оплачен - {{ notes.property.fine_is_paid }}</p>
+        <p class="card-text">Контакты {{ notes.contact }}</p>
+        <p class="card-text"><small class="text-muted">{{ notes.date}}</small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
