@@ -19,7 +19,7 @@ def list_foreign_traslate(words_dict):
     return list_foreign_word, list_translation_word
 
 def write(file_path, items):
-    with open(file_path, 'w', encoding="utf-8") as file:
+    with open(file_path, 'w', encoding='utf-8') as file:
         for word in items:
             file.write(f'{word}\n')
 
