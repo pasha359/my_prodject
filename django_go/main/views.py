@@ -39,6 +39,7 @@ def show_note(request, note_id):
 @login_required()
 def all_notes(request):
     notes = Notes.objects.all()
+
     paginator = Paginator(notes, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
