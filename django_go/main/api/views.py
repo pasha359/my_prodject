@@ -26,19 +26,20 @@ class NoteViewSet(viewsets.ModelViewSet):
         headers = self.get_success_headers(return_serializer.data)
         return Response(return_serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
+
     def update(self, request, *args, **kwargs):
         pass
-    #     pk = kwargs.get('pk', None)
-    #     if not pk:
-    #         return Response({'error':'Method UPDATE is not possible'})
-    #     try:
-    #         instance = Notes.objects.get(pk=pk)
-    #     except:
-    #         return Response({'error': 'object is not exist'})
-    #
-    #
-    #
-    #     serializer = NoteCreateSerialaizer(data=request.data, instance=instance)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save()
-    #     return Response({'update': serializer.data})
+        pk = kwargs.get('pk', None)
+        if not pk:
+            return Response({'error':'Method UPDATE is not possible'})
+        try:
+            instance = Notes.objects.get(pk=pk)
+        except:
+            return Response({'error': 'object is not exist'})
+
+
+
+        serializer = NoteCreateSerialaizer(data=request.data, instance=instance)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({'update': serializer.data})
