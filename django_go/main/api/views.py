@@ -1,12 +1,8 @@
-
 from main.serializers import *
-from rest_framework import generics, viewsets
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from main.permissions import *
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.views import APIView
-
 
 class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NotesSerializer
@@ -37,9 +33,9 @@ class NoteViewSet(viewsets.ModelViewSet):
         except:
             return Response({'error': 'object is not exist'})
 
-
-
         serializer = NoteCreateSerialaizer(data=request.data, instance=instance)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({'update': serializer.data})
+
+

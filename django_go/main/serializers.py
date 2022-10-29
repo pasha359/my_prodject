@@ -61,15 +61,6 @@ class NoteCreateSerialaizer(serializers.Serializer):
         instance.save()
         return instance
 
-
-
-
-
-
-
-
-
-
 class PassportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passport

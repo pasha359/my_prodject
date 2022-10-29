@@ -2,7 +2,6 @@ from django import forms
 from .models import *
 from django.utils import timezone
 
-
 sex_choices = (
     ('MEN', 'men'),
     ('WOMEN', 'women')
@@ -46,5 +45,6 @@ class NotesForm(forms.Form):
 
 
         all = new_person, new_passport, new_propertys, new_notes
-
         return all
+
+
